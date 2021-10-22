@@ -78,6 +78,7 @@ export default function Edit(props) {
 		}).then(function(response) {
 			return response.json();
 		}).then(function(data) {
+			data = JSON.parse(data);
 			let tmpitems = []
 			data.SearchResult.Items.forEach(function(item) {
 				tmpitems.push({

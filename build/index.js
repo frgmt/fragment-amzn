@@ -281,6 +281,7 @@ function Edit(props) {
     }).then(function (response) {
       return response.json();
     }).then(function (data) {
+      data = JSON.parse(data);
       var tmpitems = [];
       data.SearchResult.Items.forEach(function (item) {
         tmpitems.push({

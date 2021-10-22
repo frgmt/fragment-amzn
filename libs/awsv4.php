@@ -15,7 +15,7 @@
  * permissions and limitations under the License.
  */
 
-class AwsV4 {
+class FragmentAmznV4 {
 
     private $accessKeyID = null;
     private $secretAccessKey = null;

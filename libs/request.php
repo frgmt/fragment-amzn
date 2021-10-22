@@ -17,7 +17,7 @@
 
 require_once dirname( __FILE__ ) . '/awsv4.php';
 
-class SearchItemsRequest {
+class FragmentAmznSearchItemsRequest {
     public $PartnerType;
     public $PartnerTag;
     public $Keywords;

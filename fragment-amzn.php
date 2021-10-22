@@ -111,7 +111,7 @@ class FragmentAmzn
 								</label>
 							</th>
 							<td>
-								<input type="text" id="amazon_access_key" name="amazon_access_key" value="<?= get_option(self::PLUGIN_DB_PREFIX . "amazon_access_key"); ?>" />
+								<input type="text" id="amazon_access_key" name="amazon_access_key" value="<?php echo get_option(self::PLUGIN_DB_PREFIX . "amazon_access_key"); ?>" />
 							</td>
 						</tr>
 						<tr>
@@ -121,7 +121,7 @@ class FragmentAmzn
 								</label>
 							</th>
 							<td>
-								<input type="text" id="amazon_secret_key" name="amazon_secret_key" value="<?= get_option(self::PLUGIN_DB_PREFIX . "amazon_secret_key"); ?>" />
+								<input type="text" id="amazon_secret_key" name="amazon_secret_key" value="<?php echo get_option(self::PLUGIN_DB_PREFIX . "amazon_secret_key"); ?>" />
 							</td>
 						</tr>
 					</tbody>
@@ -149,7 +149,7 @@ class FragmentAmzn
 								</label>
 							</th>
 							<td>
-								<input type="text" id="amazon_associate_id" name="amazon_associate_id" value="<?= get_option(self::PLUGIN_DB_PREFIX . "amazon_associate_id"); ?>" />
+								<input type="text" id="amazon_associate_id" name="amazon_associate_id" value="<?php echo get_option(self::PLUGIN_DB_PREFIX . "amazon_associate_id"); ?>" />
 							</td>
 						</tr>
 					</tbody>
@@ -170,7 +170,7 @@ class FragmentAmzn
 								</label>
 							</th>
 							<td>
-								<input type="text" id="rakuten_affiliate_id" name="rakuten_affiliate_id" value="<?= get_option(self::PLUGIN_DB_PREFIX . "rakuten_affiliate_id"); ?>" />
+								<input type="text" id="rakuten_affiliate_id" name="rakuten_affiliate_id" value="<?php echo get_option(self::PLUGIN_DB_PREFIX . "rakuten_affiliate_id"); ?>" />
 							</td>
 						</tr>
 					</tbody>
@@ -181,7 +181,7 @@ class FragmentAmzn
 ?>
 
 				<p><input type='submit' value='保存' class='button button-primary button-large'></p>
-				<input type="hidden" name="tab" value="<?=esc_html($_GET["tab"])?>" />
+				<input type="hidden" name="tab" value="<?php echo esc_attr($_GET["tab"])?>" />
 				<?php wp_nonce_field(self::CREDENTIAL_ACTION, self::CREDENTIAL_NAME) ?>
 			</form>
 		</div>
@@ -209,7 +209,7 @@ class FragmentAmzn
 	{
 		check_ajax_referer('fragment-amzn', 'security');
 
-		$searchItemRequest = new SearchItemsRequest();
+		$searchItemRequest = new FragmentAmznSearchItemsRequest();
 		$searchItemRequest->PartnerType = "Associates";
 		$searchItemRequest->PartnerTag = get_option(self::PLUGIN_DB_PREFIX . "amazon_associate_id");
 		$searchItemRequest->Keywords = sanitize_text_field($_POST['keywords']);
@@ -219,7 +219,7 @@ class FragmentAmzn
 		$host = "webservices.amazon.co.jp";
 		$path = "/paapi5/searchitems";
 		$payload = json_encode($searchItemRequest);
-		$awsv4 = new AwsV4(get_option(self::PLUGIN_DB_PREFIX . "amazon_access_key"), get_option(self::PLUGIN_DB_PREFIX . "amazon_secret_key"));
+		$awsv4 = new FragmentAmznV4(get_option(self::PLUGIN_DB_PREFIX . "amazon_access_key"), get_option(self::PLUGIN_DB_PREFIX . "amazon_secret_key"));
 		$awsv4->setPath($path);
 		$awsv4->setPayload($payload);
 		$headers = $awsv4->getHeaders();
@@ -247,7 +247,7 @@ class FragmentAmzn
 		}
 
 		header('Content-Type: application/json; charset=utf-8');
-		echo $response;
+		echo json_encode($response);
 		exit;
 	}
 }
