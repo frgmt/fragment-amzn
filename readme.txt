@@ -15,7 +15,11 @@ Contributors:      fragment
 == Description ==
 
 Amazon Product Advertising APIを利用して、投稿画面のブロックから商品を検索し、埋め込みます。
-※このプラグインは外部サービスのAmazon Product Advertising APIを使用している為、Amazon Product Advertising APIの仕様変更により、アップデートが必要になることがあります。
+※このプラグインはサードパーティーのAmazon Product Advertising APIを使用しています。Amazon Product Advertising APIの仕様変更により、使用が出来なくなることがあります。
+Amazon Product Advertising APIの規約に関しては、以下をご理解頂いた上で、このプラグインのご利用をお願いします。
+https://affiliate.amazon.co.jp/help/operating/paapilicenseagreement
+また、Amazonアソシエイト・プログラム運営規約を、良くお読みください。
+https://affiliate.amazon.co.jp/help/operating/agreement/
 
 == Installation ==
 
