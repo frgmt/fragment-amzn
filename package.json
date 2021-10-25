@@ -1,6 +1,6 @@
 {
 	"name": "fragment-amzn",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Amazonの商品を検索してブロックに追加します。",
 	"author": "fragment.co.jp",
 	"license": "GPL-2.0-or-later",
