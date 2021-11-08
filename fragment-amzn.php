@@ -5,7 +5,7 @@
  * Description:       Amazonの商品を検索してブロックに追加します。利用には、<strong>Amazon Product Advertisingのアクセスキー・シークレットキーが必要です</strong>。設定ページからキーを設定して、有効化してください。
  * Requires at least: 5.8
  * Requires PHP:      7.0
- * Version:			  1.0.1
+ * Version:			  1.0.2
  * Author:            <a href="https://tech.fragment.co.jp/" target="_blank">fragment</a>
  * License:           GPL-3.0
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
@@ -199,8 +199,6 @@ class FragmentAmzn
 					update_option(self::PLUGIN_DB_PREFIX . 'amazon_associate_id', sanitize_text_field($_POST['amazon_associate_id']));
 					update_option(self::PLUGIN_DB_PREFIX . 'rakuten_affiliate_id', sanitize_text_field($_POST['rakuten_affiliate_id']));
 				}
-
-				wp_safe_redirect(menu_page_url(self::CONFIG_MENU_SLUG), false);
 			}
 		}
 	}

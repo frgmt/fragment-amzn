@@ -2,7 +2,7 @@
 Author:            fragment
 Author URI:        https://fragment.co.jp/
 Plugin URI:        https://tech.fragment.co.jp/fragment-amzn/
-Stable tag:        1.0.1
+Stable tag:        1.0.2
 License:           GPL-3.0
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 Requires at least: 5.0
@@ -54,5 +54,8 @@ https://affiliate.amazon.co.jp/help/operating/agreement/
 
 = 1.0.1 =
 * readme.txt修正
+
+= 1.0.2 =
+* bug修正
 
 == Upgrade Notice ==
